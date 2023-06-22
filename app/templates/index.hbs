@@ -1,0 +1,20 @@
+{{page-title "Index"}}
+<h2>Bookings</h2>
+{{#each this.model as |booking|}}
+  <p>Reference: {{booking.reference}}</p>
+  {{#if booking.customer}}
+    <p>Customer: {{booking.customer.name}}</p>
+  {{else}}
+    <p>Customer: (no customer model returned)</p>
+  {{/if}}
+{{/each}}
+<h3>Steps to replicate the bug:</h3>
+<ul>
+  <li>Step 1: go to /models/booking.js and uncomment the `isRealtime: true` line
+    in the customers relationship definition.</li>
+  <li>Step 2: refresh this page - the customer name now appears only once, for
+    the first entry.</li>
+</ul>
+<p>For whatever reason, when the realtime listener gets involved, the store only
+  returns the customer for the first model that requests it.</p>
+{{outlet}}
