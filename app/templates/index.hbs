@@ -1,12 +1,16 @@
 {{page-title "Index"}}
 <h2>Bookings</h2>
 {{#each this.model as |booking|}}
-  <p>Reference: {{booking.reference}}</p>
-  {{#if booking.customer}}
-    <p>Customer: {{booking.customer.name}}</p>
-  {{else}}
-    <p>Customer: (no customer model returned)</p>
-  {{/if}}
+  <ul>
+    <li>
+      <p>Reference: {{booking.reference}}</p>
+      {{#if booking.customer}}
+        <p>Customer: {{booking.customer.name}}</p>
+      {{else}}
+        <p>Customer: (no customer model returned)</p>
+      {{/if}}
+    </li>
+  </ul>
 {{/each}}
 <h3>Steps to replicate the bug:</h3>
 <ul>
