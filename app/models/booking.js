@@ -6,7 +6,7 @@ export default class BookingModel extends Model {
   @belongsTo('customer', {
     async: true,
     inverse: 'bookings',
-    isRealtime: true, // toggle this line to expose the bug
+    // isRealtime: true, // toggle this line to expose the bug
   })
   customer;
 }
